@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(python *)",
+      "Bash(rtk read *)",
+      "Bash(rtk grep *)",
+      "WebSearch",
+      "WebFetch(domain:www.sportsmole.co.uk)",
+      "WebFetch(domain:sport.sky.it)",
+      "WebFetch(domain:docs.polymarket.us)",
+      "WebFetch(domain:odds-api.io)",
+      "Bash(Get-Content *)",
+      "Bash(kill 248 *)",
+      "Bash(npx -y football-docs@latest)",
+      "Bash(claude plugin *)",
+      "Bash(git config *)",
+      "Bash(claude mcp *)",
+      "Bash(npx -y football-docs@latest --help)",
+      "WebFetch(domain:github.com)",
+      "Bash(pip install *)",
+      "Bash(git remote *)",
+      "Bash(rtk git *)"
+    ]
+  },
+  "enabledPlugins": {}
+}

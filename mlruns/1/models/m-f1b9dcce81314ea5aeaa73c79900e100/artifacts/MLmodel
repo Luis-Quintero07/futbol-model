@@ -1,0 +1,27 @@
+artifact_path: file:C:/Users/luisq/Desktop/Bet/futbol-model/mlruns/1/models/m-f1b9dcce81314ea5aeaa73c79900e100/artifacts
+flavors:
+  lightgbm:
+    code: null
+    data: model.lgb
+    lgb_version: 4.7.0
+    model_class: lightgbm.basic.Booster
+    serialization_format: skops
+    skops_trusted_types:
+    - lightgbm.sklearn.LGBMRegressor
+    - lightgbm.basic.Booster
+    - lightgbm.sklearn.LGBMClassifier
+    - collections.OrderedDict
+  python_function:
+    data: model.lgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.14.7
+mlflow_version: 3.18.0
+model_id: m-f1b9dcce81314ea5aeaa73c79900e100
+model_size_bytes: 159974
+model_uuid: m-f1b9dcce81314ea5aeaa73c79900e100
+prompts: null
+run_id: 19d26f0013b544499be382a82306edeb
+utc_time_created: '2026-11-23 05:25:35.251693'

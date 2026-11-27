@@ -1,0 +1,5 @@
+Date,League,Fixture,Market,Selection,Bookmaker,Odds,Model_Prob,EV_Pct,Kelly_Stake_Pct,Stake_Pct_Bankroll,Stake_COP,Result,PL_COP,Closing_Odds,CLV_Pct,Notes
+2026-11-23,SP1,Levante vs Elche,1X2,Home (Levante),Bet365,2.18,0.5591,21.88,4.64,4.64,464,,,,,"",,Monte Carlo + ML | Bankroll: 10.000 COP total
+2026-11-23,I1,Monza vs Fiorentina,1X2,Away (Fiorentina),Bet365,1.98,0.6133,21.43,5.47,5.47,547,,,,,"",,Monte Carlo + ML | Bankroll: 10.000 COP total
+2026-11-23,E0,Brentford vs Everton,1X2,Away (Everton),Bet365,3.10,0.3535,9.58,1.14,1.14,114,,,,,"",,Monte Carlo + ML | Bankroll: 10.000 COP total
+2026-11-23,COMBO,"Levante (H) + Fiorentina (A)",Combo,2-leg,Bet365,4.32,0.3429,48.00,2.17,2.17,217,,,,,"",,2-leg combo | Bankroll: 10.000 COP total

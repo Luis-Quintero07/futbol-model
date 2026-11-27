@@ -1,0 +1,5 @@
+Date,League,Fixture,Market,Selection,Bookmaker,Odds,Model_Prob,EV_Pct,Kelly_Stake_Pct,Stake_Units,Result,PL_Units,Closing_Odds,CLV_Pct,Notes
+2026-11-23,I1,Monza vs Fiorentina,1X2,Away (Fiorentina),Bet365,1.98,65.8%,30.4%,7.75%,,,,,Monte Carlo + ML Ensemble
+2026-11-23,SP1,Levante vs Elche,1X2,Home (Levante),Bet365,2.20,55.9%,23.0%,4.79%,,,,,Monte Carlo + ML Ensemble
+2026-11-23,E0,Brentford vs Everton,1X2,Away (Everton),Bet365,3.10,36.9%,14.4%,1.72%,,,,,Monte Carlo + ML Ensemble
+2026-11-23,COMBO,"Monza vs Fiorentina (A) + Levante vs Elche (H)",Combo,Leg1 Away + Leg2 Home,Bet365,4.36,36.8%,60.3%,2.70%,,,,,2-leg combo

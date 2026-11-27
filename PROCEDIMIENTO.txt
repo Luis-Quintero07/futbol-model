@@ -1,0 +1,29 @@
+ESTADO ACTUAL - 2026-11-25 03:39 AM
+==========================================
+
+LO COMPLETADO EN ESTA SESIÓN:
+1. Fix KeyError 'ev_bets' en model_poisson_mc.py:613 (línea 619)
+2. Fix odds mapping: B365H/B365D/B365A → home/draw/away para datos históricos
+3. Validación pipeline: LightGBM → lambdas → Dixon-Coles → MC sims → EV bets FUNCIONA
+
+LO QUE FALLA:
+- Función backtest_poisson_mc() devuelve 0 bets
+- Script standalone (debug_backtest.py) SÍ genera ~1000+ bets en 1 fold, 100 sims
+- Bug probable: la función backtest_poisson_mc() usa modelos pre-entrenados (load_models_and_calibrators) en lugar de reentrenar por fold, o hay diferencia en feat_cols
+
+PRÓXIMOS PASOS (para próxima sesión):
+1. Comparar feat_cols entre prepare_data() en backtest vs debug script
+2. Verificar que backtest_poisson_mc() reentrena modelos por fold (líneas 574-609) - sí lo hace
+3. Ejecutar backtest completo: python model_poisson_mc.py --backtest --sims 1000 --folds 2
+4. Si funciona, correr backtest 6 folds × 5000 sims para validación final
+
+ARCHIVOS CLAVE:
+- model_poisson_mc.py (motor principal Poisson+MC 10k sims)
+- models/*.txt + *_calibrator.pkl (modelos LightGBM entrenados)
+- data/matches_pre_match.parquet (dataset histórico 17891 filas, 130 features)
+- data/poisson_mc_bets_2026-11-25_pre.parquet (picks UCL 25-nov ya generados)
+
+FLUJO DIARIO (NO backtest):
+main(target_date, source="oddsportal", pass_mode="pre") → carga modelos → fetch_live → features_pre_match → LightGBM → Poisson+MC 10k → EV+Kelly → output
+
+Para continuar: leer PROCEDIMIENTO.txt → python model_poisson_mc.py --backtest --sims 1000

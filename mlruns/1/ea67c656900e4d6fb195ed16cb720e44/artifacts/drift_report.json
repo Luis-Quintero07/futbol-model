@@ -1,0 +1,29 @@
+{
+  "drift_features": {
+    "home_games_last_30": {
+      "psi": 0.36317174910593175,
+      "drift": true
+    },
+    "away_games_last_30": {
+      "psi": 0.35566211343321014,
+      "drift": true
+    },
+    "season_day": {
+      "psi": 6.775494253334554,
+      "drift": true
+    },
+    "season_month": {
+      "psi": 3.845631482676275,
+      "drift": true
+    },
+    "season_phase": {
+      "psi": 4.264956846062973,
+      "drift": true
+    },
+    "league_avg_goals": {
+      "psi": 0.9627012946226259,
+      "drift": true
+    }
+  },
+  "max_psi": 6.775494253334554
+}
