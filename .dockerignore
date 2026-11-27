@@ -12,3 +12,13 @@ mlflow.db
 uv.lock
 .test_output
 *.log
+.git
+.gitignore
+README.md
+*.md
+Dockerfile
+.dockerignore
+nixpacks.toml
+.python-version
+runtime.txt
+Procfile
