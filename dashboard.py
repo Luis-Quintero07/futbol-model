@@ -182,7 +182,7 @@ def render_sidebar():
         st.header("⚙️ Controls")
 
         # Date selector
-        date_str = st.date_input("Match Date", value=datetime(2026, 11, 22))
+        date_str = st.date_input("Match Date", value=datetime(2026, 11, 27))
         date_str = date_str.strftime("%Y-%m-%d")
 
         # League filter

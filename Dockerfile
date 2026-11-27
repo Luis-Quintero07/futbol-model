@@ -24,6 +24,9 @@ RUN playwright install chromium
 # Copy app
 COPY . .
 
+# Create entrypoint script to generate daily predictions on startup
+RUN echo '#!/bin/bash\nset -e\nDATE=$(date +%F)\necho "Generating predictions for $DATE..."\npython fetch_live.py $DATE --source oddsportal --pass pre || true\npython fetch_live.py $DATE --source oddsportal --pass post || true\nexec streamlit run dashboard.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true' > /entrypoint.sh && chmod +x /entrypoint.sh
+
 EXPOSE 8501
 
-CMD ["streamlit", "run", "dashboard.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true"]
+ENTRYPOINT ["/entrypoint.sh"]
