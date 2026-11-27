@@ -1,0 +1,14 @@
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+data/*.parquet
+models/*.txt
+models/*.pkl
+mlruns/
+mlflow.db
+uv.lock
+.test_output
+*.log
