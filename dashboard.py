@@ -58,17 +58,20 @@ def load_models():
     return models, calibrators
 
 @st.cache_data
-def load_live_data(date_str="2026-11-22"):
+def load_live_data(date_str="2026-11-27"):
     """Load pre-computed predictions for the day"""
-    analysis_file = DATA_DIR / f"live_analysis_{date_str}.parquet"
-    bets_file = DATA_DIR / f"live_bets_{date_str}.parquet"
-    fixtures_file = DATA_DIR / f"oddsportal_fixtures_{date_str.replace('-', '')}.parquet"
+    # Try post-lineup first (most recent), then pre-lineup, then base name
+    for suffix in ["_post", "_pre", ""]:
+        analysis_file = DATA_DIR / f"live_analysis_{date_str}{suffix}.parquet"
+        bets_file = DATA_DIR / f"live_bets_{date_str}{suffix}.parquet"
+        if analysis_file.exists() and bets_file.exists():
+            analysis = pd.read_parquet(analysis_file)
+            bets = pd.read_parquet(bets_file)
+            fixtures_file = DATA_DIR / f"oddsportal_fixtures_{date_str.replace('-', '')}.parquet"
+            fixtures = pd.read_parquet(fixtures_file) if fixtures_file.exists() else pd.DataFrame()
+            return analysis, bets, fixtures
 
-    analysis = pd.read_parquet(analysis_file) if analysis_file.exists() else pd.DataFrame()
-    bets = pd.read_parquet(bets_file) if bets_file.exists() else pd.DataFrame()
-    fixtures = pd.read_parquet(fixtures_file) if fixtures_file.exists() else pd.DataFrame()
-
-    return analysis, bets, fixtures
+    return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 @st.cache_data
 def load_historical_features():
