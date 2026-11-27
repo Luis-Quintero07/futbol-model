@@ -3,23 +3,23 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # System deps for lightgbm, playwright, pandas wheels
-# Install font packages first (Debian trixie renamed ttf-* to fonts-*)
+# Install chromium and fonts via apt (more reliable than playwright --with-deps on trixie)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
     wget \
     ca-certificates \
+    chromium \
     fonts-liberation \
     fonts-dejavu-core \
     fonts-unifont \
-    fonts-ubuntu \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (cache layer)
 COPY requirements.txt .
 RUN pip install --no-cache-dir --only-binary=:all: -r requirements.txt
 
-# Install playwright chromium (fonts pre-installed above, --with-deps will use them)
-RUN playwright install chromium --with-deps
+# Install playwright (will use system chromium from /usr/bin/chromium)
+RUN playwright install chromium
 
 # Copy app
 COPY . .
